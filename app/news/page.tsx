@@ -23,7 +23,7 @@ export default function NewsPage() {
 
   return (
     <>
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas section-padding">
         <div className="container-site">
           <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">
             Novidades
@@ -37,7 +37,7 @@ export default function NewsPage() {
         </div>
       </section>
 
-      <section className="bg-surface-soft py-24">
+      <section className="bg-surface-soft section-padding">
         <div className="container-site">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {data.map((item) => (

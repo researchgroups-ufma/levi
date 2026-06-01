@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas section-padding">
         <div className="container-site">
           <div className="max-w-2xl">
             <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-6">
@@ -36,7 +36,7 @@ export default function Home() {
       </section>
 
       {/* Linhas de pesquisa */}
-      <section className="bg-surface-soft py-24">
+      <section className="bg-surface-soft section-padding">
         <div className="container-site">
           <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">
             Linhas de pesquisa
@@ -62,7 +62,7 @@ export default function Home() {
       </section>
 
       {/* Membros destaque */}
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas section-padding">
         <div className="container-site">
           <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">
             Equipe
@@ -93,7 +93,7 @@ export default function Home() {
       </section>
 
       {/* Publicações recentes */}
-      <section className="bg-surface-dark py-24">
+      <section className="bg-surface-dark section-padding">
         <div className="container-site">
           <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">
             Publicações
@@ -135,7 +135,7 @@ export default function Home() {
       </section>
 
       {/* CTA contato */}
-      <section className="bg-primary py-24">
+      <section className="bg-primary section-padding">
         <div className="container-site text-center">
           <h2 className="font-serif text-4xl text-on-primary tracking-tight mb-6">
             Quer fazer parte do LEVI?

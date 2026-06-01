@@ -1,14 +1,14 @@
 ﻿export default function ContactPage() {
   return (
     <>
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas section-padding">
         <div className="container-site">
           <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">Contato</span>
           <h1 className="font-serif text-5xl text-ink tracking-tight mb-6">Fale com o LEVI</h1>
           <p className="text-lg text-body leading-relaxed max-w-2xl">Tem interesse em colaborar, ingressar no grupo ou simplesmente saber mais sobre nossas pesquisas? Entre em contato.</p>
         </div>
       </section>
-      <section className="bg-surface-soft py-24">
+      <section className="bg-surface-soft section-padding">
         <div className="container-site">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <div className="bg-canvas rounded-lg p-8 border border-hairline">

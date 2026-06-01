@@ -25,14 +25,14 @@ export default function PublicationsPage() {
 
   return (
     <>
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas section-padding">
         <div className="container-site">
           <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">Producao cientifica</span>
           <h1 className="font-serif text-5xl text-ink tracking-tight mb-6">Publicacoes</h1>
           <p className="text-lg text-body leading-relaxed max-w-2xl">Artigos, preprints e outros trabalhos produzidos pelos membros do LEVI.</p>
         </div>
       </section>
-      <section className="bg-surface-dark py-24">
+      <section className="bg-surface-dark section-padding">
         <div className="container-site flex flex-col gap-6">
           {data.map((pub) => (
             <div key={pub.slug} className="bg-surface-dark-elevated rounded-lg p-8">

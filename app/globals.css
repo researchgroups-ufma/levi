@@ -74,3 +74,12 @@ body {
     padding-inline: 4rem;
   }
 }
+.section-padding {
+  padding-block: 6rem;  /* ← espaçamento em mobile */
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-block: 2rem;  /* ← espaçamento em desktop */
+  }
+}

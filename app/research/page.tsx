@@ -21,7 +21,7 @@ export default function ResearchPage() {
 
   return (
     <>
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas section-padding">
         <div className="container-site">
           <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">
             Pesquisa
@@ -35,7 +35,7 @@ export default function ResearchPage() {
         </div>
       </section>
 
-      <section className="bg-surface-soft py-24">
+      <section className="bg-surface-soft section-padding">
         <div className="container-site flex flex-col gap-8">
           {data.map((area) => (
             <div key={area.slug} className="bg-canvas rounded-lg p-8 border border-hairline">

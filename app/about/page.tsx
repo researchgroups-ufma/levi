@@ -2,7 +2,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero da página */}
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas section-padding">
         <div className="container-site">
           <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">
             Apresentação
@@ -18,7 +18,7 @@ export default function AboutPage() {
       </section>
 
       {/* Missão */}
-      <section className="bg-surface-soft py-24">
+      <section className="bg-surface-soft section-padding">
         <div className="container-site grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
             <h2 className="font-serif text-3xl text-ink tracking-tight mb-4">
@@ -42,7 +42,7 @@ export default function AboutPage() {
       </section>
 
       {/* Afiliações */}
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas section-padding">
         <div className="container-site">
           <h2 className="font-serif text-3xl text-ink tracking-tight mb-8">
             Afiliações
