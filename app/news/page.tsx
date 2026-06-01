@@ -10,7 +10,7 @@ type News = {
 };
 
 export default function NewsPage() {
-  const news = getCollection('news') as News[];
+  const news = getCollection('news') as unknown as News[];
 
   const fallback: News[] = [
     { slug: 'placeholder-1', title: 'Título da Notícia Placeholder 1', date: '15 de maio de 2025', category: 'Publicação', excerpt: 'Placeholder — resumo da notícia 1.' },
