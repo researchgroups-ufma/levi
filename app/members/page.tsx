@@ -14,7 +14,7 @@ type Member = {
 };
 
 export default function MembersPage() {
-  const members = getCollection('members') as unknown as Member[];
+  const members = getCollection('members') as Member[];
 
 const fallback: Member[] = [
   { slug: 'placeholder-1', title: 'Nome Placeholder', role: 'Pesquisador Sênior', affiliation: 'UFMA — Departamento de Física', bio: 'Placeholder — mini biografia.', email: 'placeholder@ufma.br', lattes: '#', orcid: '#', photo: undefined },
