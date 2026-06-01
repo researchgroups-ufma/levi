@@ -16,12 +16,12 @@ type Member = {
 export default function MembersPage() {
   const members = getCollection('members') as unknown as Member[];
 
-  const fallback = [
-    { slug: 'placeholder-1', title: 'Nome Placeholder', role: 'Pesquisador Sênior', affiliation: 'UFMA — Departamento de Física', bio: 'Placeholder — mini biografia.', email: 'placeholder@ufma.br', lattes: '#', orcid: '#' },
-    { slug: 'placeholder-2', title: 'Nome Placeholder', role: 'Doutorando', affiliation: 'UFMA — PPGF', bio: 'Placeholder — mini biografia.', email: 'placeholder@discente.ufma.br', lattes: '#', orcid: undefined },
-    { slug: 'placeholder-3', title: 'Nome Placeholder', role: 'Mestrando', affiliation: 'UFMA — PPGF', bio: 'Placeholder — mini biografia.', email: 'placeholder@discente.ufma.br', lattes: '#', orcid: undefined },
-    { slug: 'placeholder-4', title: 'Nome Placeholder', role: 'Iniciação Científica', affiliation: 'UFMA — Física', bio: 'Placeholder — mini biografia.', email: 'placeholder@discente.ufma.br', lattes: undefined, orcid: undefined },
-  ];
+const fallback: Member[] = [
+  { slug: 'placeholder-1', title: 'Nome Placeholder', role: 'Pesquisador Sênior', affiliation: 'UFMA — Departamento de Física', bio: 'Placeholder — mini biografia.', email: 'placeholder@ufma.br', lattes: '#', orcid: '#', photo: undefined },
+  { slug: 'placeholder-2', title: 'Nome Placeholder', role: 'Doutorando', affiliation: 'UFMA — PPGF', bio: 'Placeholder — mini biografia.', email: 'placeholder@discente.ufma.br', lattes: '#', orcid: undefined, photo: undefined },
+  { slug: 'placeholder-3', title: 'Nome Placeholder', role: 'Mestrando', affiliation: 'UFMA — PPGF', bio: 'Placeholder — mini biografia.', email: 'placeholder@discente.ufma.br', lattes: '#', orcid: undefined, photo: undefined },
+  { slug: 'placeholder-4', title: 'Nome Placeholder', role: 'Iniciação Científica', affiliation: 'UFMA — Física', bio: 'Placeholder — mini biografia.', email: 'placeholder@discente.ufma.br', lattes: undefined, orcid: undefined, photo: undefined },
+];
 
   const data = members.length > 0 ? members : fallback;
 
