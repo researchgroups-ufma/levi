@@ -1,0 +1,77 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+
+locale: pt
+
+collections:
+  - name: "about"
+    label: "Sobre o Grupo"
+    files:
+      - name: "about"
+        label: "Apresentação Institucional"
+        file: "content/about/index.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
+          - { label: "Missão", name: "mission", widget: "text" }
+          - { label: "Histórico", name: "history", widget: "markdown" }
+          - { label: "Imagem de destaque", name: "featured_image", widget: "image", required: false }
+
+  - name: "research"
+    label: "Linhas de Pesquisa"
+    folder: "content/research"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nome", name: "title", widget: "string" }
+      - { label: "Resumo curto", name: "summary", widget: "text" }
+      - { label: "Descrição completa", name: "body", widget: "markdown" }
+      - { label: "Imagem", name: "image", widget: "image", required: false }
+
+  - name: "members"
+    label: "Membros"
+    folder: "content/members"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nome completo", name: "title", widget: "string" }
+      - { label: "Função", name: "role", widget: "select", options: ["Pesquisador Sênior", "Pós-Doutorando", "Doutorando", "Mestrando", "Iniciação Científica", "Alumni"] }
+      - { label: "Afiliação", name: "affiliation", widget: "string" }
+      - { label: "Mini bio", name: "bio", widget: "text" }
+      - { label: "Foto", name: "photo", widget: "image", required: false }
+      - { label: "E-mail", name: "email", widget: "string", required: false }
+      - { label: "Lattes", name: "lattes", widget: "string", required: false }
+      - { label: "ORCID", name: "orcid", widget: "string", required: false }
+      - { label: "Linha de pesquisa", name: "research_area", widget: "string", required: false }
+
+  - name: "publications"
+    label: "Publicações"
+    folder: "content/publications"
+    create: true
+    slug: "{{year}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Autores", name: "authors", widget: "string" }
+      - { label: "Ano", name: "year", widget: "number" }
+      - { label: "Periódico", name: "journal", widget: "string", required: false }
+      - { label: "DOI", name: "doi", widget: "string", required: false }
+      - { label: "arXiv", name: "arxiv", widget: "string", required: false }
+      - { label: "Tipo", name: "type", widget: "select", options: ["Artigo", "Preprint", "Tese", "Dissertação", "Livro", "Capítulo"] }
+      - { label: "Linha de pesquisa", name: "research_area", widget: "string", required: false }
+
+  - name: "news"
+    label: "Notícias"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime" }
+      - { label: "Categoria", name: "category", widget: "select", options: ["Publicação", "Defesa", "Premiação", "Visita", "Mídia", "Outros"] }
+      - { label: "Resumo", name: "excerpt", widget: "text" }
+      - { label: "Conteúdo completo", name: "body", widget: "markdown" }
+      - { label: "Imagem de capa", name: "cover_image", widget: "image", required: false }
