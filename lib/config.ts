@@ -1,7 +1,7 @@
 export const siteConfig = {
   // Identidade do grupo
   name: 'LEVI',
-  fullName: 'Laboratório de Estudos em [área]',
+  fullName: 'Laboratório de Estudos em Física',
   acronym: 'LEVI',
   department: 'Departamento de Física',
   unit: 'CCET',
