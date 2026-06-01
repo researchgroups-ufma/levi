@@ -21,6 +21,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href={siteConfig.theme.googleFontsUrl} rel="stylesheet" />
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
       </head>
       <body className="bg-canvas text-ink font-sans">
         <ThemeProvider />
@@ -29,6 +30,19 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            if (window.netlifyIdentity) {
+              window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                  window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                  });
+                }
+              });
+            }
+          `
+        }} />
       </body>
     </html>
   );
