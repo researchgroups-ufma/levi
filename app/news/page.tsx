@@ -1,4 +1,4 @@
-import { getCollection } from '@/lib/mdx';
+import { getCollection, formatDate } from '@/lib/mdx';
 
 type News = {
   slug: string;
@@ -47,8 +47,8 @@ export default function NewsPage() {
                     {item.category}
                   </span>
                   <span className="text-xs text-muted">
-                    {item.date}
-                  </span>
+  {formatDate(item.date)}
+</span>
                 </div>
                 <h2 className="font-serif text-xl text-ink tracking-tight leading-snug">
                   {item.title}

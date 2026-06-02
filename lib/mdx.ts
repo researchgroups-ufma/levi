@@ -34,3 +34,21 @@ export function getSingleFile(filePath: string): any | null {
   const { data, content } = matter(fileContent);
   return { ...data, content };
 }
+/**
+ * Formata uma data para o padrão brasileiro legível.
+ * Aceita string ISO, objeto Date ou qualquer valor que o Decap CMS gere.
+ * Uso: formatDate(item.date) → "02 de junho de 2026"
+ * Retorna string vazia se a data for inválida ou ausente.
+ */
+export function formatDate(date: unknown): string {
+  if (!date) return '';
+  try {
+    return new Date(String(date)).toLocaleDateString('pt-BR', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+    });
+  } catch {
+    return '';
+  }
+}
