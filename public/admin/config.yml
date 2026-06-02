@@ -39,7 +39,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Nome completo", name: "title", widget: "string" }
-      - { label: "Função", name: "role", widget: "select", options: ["Pesquisador Sênior", "Pós-Doutorando", "Doutorando", "Mestrando", "Iniciação Científica", "Alumni"] }
+      - { label: "Função", name: "role", widget: "select", options: ["Chefe de Laboratório", "Professor Visitante", "Pesquisador Sênior", "Pós-Doutorando", "Doutorando", "Mestrando", "Iniciação Científica",] }
       - { label: "Afiliação", name: "affiliation", widget: "string" }
       - { label: "Mini bio", name: "bio", widget: "text" }
       - { label: "Foto", name: "photo", widget: "image", required: false }
