@@ -1,6 +1,6 @@
 ---
 title: high pressure
 summary: piejwqejwqpi
-image: https://www.chess.cornell.edu/macchess/hp_more/hp_DAC
+image: https://cdn.serc.carleton.edu/images/NAGTWorkshops/mineralogy/mineral_physics/dac_diamonds.v3.webp
 ---
 wqewuoqhewioqhewioqheowqihewioqhewioqhewqhioeq
