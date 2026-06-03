@@ -32,7 +32,7 @@ collections:
       - { label: "Descrição completa", name: "body", widget: "markdown" }
       - { label: "Imagem", name: "image", widget: "image", required: false }
 
-- name: "members"
+  - name: "members"
     label: "Membros"
     folder: "content/members"
     create: true
