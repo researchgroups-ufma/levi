@@ -1,7 +1,8 @@
 export const siteConfig = {
-  // Identidade do grupo
+  // ─── Identidade do grupo ───────────────────────────────────────────────────
+  // Altere esses campos para cada novo grupo acadêmico
   name: 'LEVI',
-  fullName: 'Laboratório de Estudos em Física',
+  fullName: 'Laboratório de Estudos em [área]',
   acronym: 'LEVI',
   department: 'Departamento de Física',
   unit: 'CCET',
@@ -11,59 +12,16 @@ export const siteConfig = {
   state: 'MA',
   country: 'Brasil',
 
-  // Contato
+  // ─── Contato ───────────────────────────────────────────────────────────────
   email: 'contato@levi.ufma.br',
   location: 'Departamento de Física — CCET, UFMA, São Luís — MA',
 
-  // SEO e metadados
+  // ─── SEO e metadados ───────────────────────────────────────────────────────
   siteTitle: 'LEVI — Laboratório de Estudos | UFMA',
-  siteDescription:
-    'Laboratório de estudos científicos do Departamento de Física da UFMA.',
+  siteDescription: 'Laboratório de estudos científicos do Departamento de Física da UFMA.',
 
-  // Identidade visual
-  theme: {
-    // Cores principais
-    primary: '#cc785c',
-    primaryActive: '#a9583e',
-    primaryDisabled: '#e6dfd8',
-
-    // Superfícies claras
-    canvas: '#faf9f5',
-    surfaceSoft: '#f5f0e8',
-    surfaceCard: '#efe9de',
-
-    // Superfícies escuras
-    surfaceDark: '#181715',
-    surfaceDarkElevated: '#252320',
-    surfaceDarkSoft: '#1f1e1b',
-
-    // Bordas
-    hairline: '#e6dfd8',
-    hairlineSoft: '#ebe6df',
-
-    // Texto claro
-    ink: '#141413',
-    bodyStrong: '#252523',
-    body: '#3d3d3a',
-    muted: '#6c6a64',
-    mutedSoft: '#8e8b82',
-
-    // Texto sobre cores
-    onPrimary: '#ffffff',
-    onDark: '#faf9f5',
-    onDarkSoft: '#a09d96',
-
-    // Fontes
-    fontSerif: "'Cormorant Garamond', Garamond, 'Times New Roman', serif",
-    fontSans: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-    fontMono: "'JetBrains Mono', monospace",
-
-    // Google Fonts URL
-    googleFontsUrl:
-      'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap',
-  },
-
-  // Navegação
+  // ─── Navegação ─────────────────────────────────────────────────────────────
+  // Adicione ou remova links conforme as seções ativas do site
   navLinks: [
     { label: 'Apresentação', href: '/about' },
     { label: 'Pesquisa', href: '/research' },
@@ -73,10 +31,11 @@ export const siteConfig = {
     { label: 'Contato', href: '/contact' },
   ],
 
-  // Afiliações exibidas na página Sobre
+  // ─── Afiliações ────────────────────────────────────────────────────────────
   affiliations: ['UFMA', 'CCET', 'Departamento de Física', 'CNPq', 'FAPEMA'],
 
-  // Redes sociais (deixe vazio se não houver)
+  // ─── Redes sociais ─────────────────────────────────────────────────────────
+  // Deixe vazio ('') para não exibir
   social: {
     lattes: '',
     orcid: '',
@@ -84,6 +43,31 @@ export const siteConfig = {
     twitter: '',
     github: '',
   },
-  // Layout
-containerPadding: 'px-8 md:px-12',
+
+  // ─── Tema visual ───────────────────────────────────────────────────────────
+  // Para trocar a identidade visual, altere apenas os valores abaixo
+  theme: {
+    // Cores principais
+    navy: '#0c1a2e',        // Cor dominante — navbar, hero, footer, títulos
+    blue: '#1a4a8a',        // Azul institucional — bordas de destaque, títulos de seção
+    blueMid: '#2460b5',     // Azul médio — botão primário, hover
+    blueLink: '#1a56cc',    // Azul link — links inline, pills hover
+
+    // Superfícies
+    white: '#ffffff',       // Fundo padrão das páginas
+    light: '#f4f5f7',       // Fundo de cards e seções alternadas
+    border: '#d0d5de',      // Bordas e divisores
+
+    // Texto
+    text: '#1a1a1a',        // Texto principal
+    muted: '#555555',       // Texto secundário, descrições
+
+    // Fontes
+    // Altere aqui para trocar a tipografia do site inteiro
+    fontSerif: "'EB Garamond', Georgia, 'Times New Roman', serif",
+    fontSans: "'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif",
+
+    // Google Fonts URL — atualize se trocar as fontes acima
+    googleFontsUrl: 'https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Source+Sans+3:wght@300;400;600&display=swap',
+  },
 };

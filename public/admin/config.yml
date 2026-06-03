@@ -32,21 +32,48 @@ collections:
       - { label: "Descrição completa", name: "body", widget: "markdown" }
       - { label: "Imagem", name: "image", widget: "image", required: false }
 
-  - name: "members"
+- name: "members"
     label: "Membros"
     folder: "content/members"
     create: true
     slug: "{{slug}}"
     fields:
+      # Nome completo do membro
       - { label: "Nome completo", name: "title", widget: "string" }
-      - { label: "Função", name: "role", widget: "select", options: ["Chefe de Laboratório", "Professor Visitante", "Pesquisador Sênior", "Pós-Doutorando", "Doutorando", "Mestrando", "Iniciação Científica",] }
+      
+      # Função/nível — adicione ou remova opções conforme necessário
+      - { label: "Função", name: "role", widget: "select", options: ["Coordenador", "Pesquisador Sênior", "Pós-Doutorando", "Doutorando", "Mestrando", "Iniciação Científica", "Egresso", "Colaborador Externo"] }
+      
+      # Afiliação institucional
       - { label: "Afiliação", name: "affiliation", widget: "string" }
-      - { label: "Mini bio", name: "bio", widget: "text" }
+      
+      # Mini biografia — texto curto
+      - { label: "Mini bio", name: "bio", widget: "text", required: false }
+      
+      # Foto do membro — enviada via upload
       - { label: "Foto", name: "photo", widget: "image", required: false }
+      
+      # Email institucional
       - { label: "E-mail", name: "email", widget: "string", required: false }
+      
+      # Links acadêmicos
       - { label: "Lattes", name: "lattes", widget: "string", required: false }
       - { label: "ORCID", name: "orcid", widget: "string", required: false }
+      - { label: "Google Scholar", name: "scholar", widget: "string", required: false }
+      - { label: "arXiv", name: "arxiv", widget: "string", required: false }
+      
+      # Linha de pesquisa — texto livre
       - { label: "Linha de pesquisa", name: "research_area", widget: "string", required: false }
+      
+      # Bolsa — ex: CAPES, CNPq, FAPEMA
+      - { label: "Bolsa", name: "scholarship", widget: "string", required: false }
+      
+      # Ano de início no grupo
+      - { label: "Ano de início", name: "year_start", widget: "string", required: false }
+      
+      # Apenas para egressos — ano de conclusão e instituição atual
+      - { label: "Ano de conclusão (egressos)", name: "year_end", widget: "string", required: false }
+      - { label: "Instituição atual (egressos)", name: "current_institution", widget: "string", required: false }
 
   - name: "publications"
     label: "Publicações"

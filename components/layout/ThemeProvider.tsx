@@ -1,32 +1,34 @@
 import { siteConfig } from '@/lib/config';
 
+/**
+ * ThemeProvider
+ * Injeta as variáveis CSS do tema definido em lib/config.ts
+ * Para trocar a identidade visual do site, edite apenas lib/config.ts
+ * Este componente lê os valores e os aplica automaticamente em todo o site
+ */
 export default function ThemeProvider() {
   const t = siteConfig.theme;
 
   const css = `
     :root {
-      --color-primary: ${t.primary};
-      --color-primary-active: ${t.primaryActive};
-      --color-primary-disabled: ${t.primaryDisabled};
-      --color-canvas: ${t.canvas};
-      --color-surface-soft: ${t.surfaceSoft};
-      --color-surface-card: ${t.surfaceCard};
-      --color-surface-dark: ${t.surfaceDark};
-      --color-surface-dark-elevated: ${t.surfaceDarkElevated};
-      --color-surface-dark-soft: ${t.surfaceDarkSoft};
-      --color-hairline: ${t.hairline};
-      --color-hairline-soft: ${t.hairlineSoft};
-      --color-ink: ${t.ink};
-      --color-body-strong: ${t.bodyStrong};
-      --color-body: ${t.body};
-      --color-muted: ${t.muted};
-      --color-muted-soft: ${t.mutedSoft};
-      --color-on-primary: ${t.onPrimary};
-      --color-on-dark: ${t.onDark};
-      --color-on-dark-soft: ${t.onDarkSoft};
-      --font-family-serif: ${t.fontSerif};
-      --font-family-sans: ${t.fontSans};
-      --font-family-mono: ${t.fontMono};
+      /* ── Cores principais ──────────────────────────────────────────────── */
+      --color-navy: ${t.navy};          /* fundo da navbar, hero, footer e títulos */
+      --color-blue: ${t.blue};          /* bordas de destaque e títulos de seção   */
+      --color-blue-mid: ${t.blueMid};   /* botão primário e hover                  */
+      --color-blue-link: ${t.blueLink}; /* links inline e pills                    */
+
+      /* ── Superfícies ───────────────────────────────────────────────────── */
+      --color-white: ${t.white};        /* fundo padrão das páginas                */
+      --color-light: ${t.light};        /* fundo de cards e seções alternadas      */
+      --color-border: ${t.border};      /* bordas e divisores                      */
+
+      /* ── Texto ─────────────────────────────────────────────────────────── */
+      --color-text: ${t.text};          /* texto principal                         */
+      --color-muted: ${t.muted};        /* texto secundário e descrições           */
+
+      /* ── Tipografia ────────────────────────────────────────────────────── */
+      --font-family-serif: ${t.fontSerif}; /* títulos e display                   */
+      --font-family-sans: ${t.fontSans};   /* corpo, navegação e labels            */
     }
   `;
 

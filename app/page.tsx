@@ -1,157 +1,256 @@
 import Link from 'next/link';
+import { siteConfig } from '@/lib/config';
+import { getSingleFile } from '@/lib/mdx';
+import PageCard from '@/components/ui/PageCard';
+
+/**
+ * Homepage — página principal do site
+ * Seções: Hero, Pesquisa, Membros/Publicações (cards), Contato
+ * O conteúdo do Hero vem de content/about/index.md via CMS
+ * Para editar textos fixos, altere lib/config.ts
+ */
+
+// Tipo dos dados da página About lidos do CMS
+type AboutData = {
+  title?: string;
+  subtitle?: string;
+  hero_image?: string; /* imagem ou GIF exibido no hero — editável pelo CMS */
+};
 
 export default function Home() {
+  // Lê o arquivo de conteúdo da apresentação
+  // Se não existir ainda, usa valores padrão
+  const about = (getSingleFile('about/index.md') ?? {}) as AboutData;
+
   return (
     <>
-      {/* Hero */}
-      <section className="bg-canvas section-padding">
-        <div className="container-site">
-          <div className="max-w-2xl">
-            <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-6">
-              Laboratório de Estudos — UFMA
-            </span>
-            <h1 className="font-serif text-5xl md:text-6xl text-ink leading-tight tracking-tight mb-6">
-              Pesquisa científica de fronteira na UFMA
+      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      {/* Fundo escuro estrelado com visual animado em CSS                   */}
+      {/* A imagem do lado direito é editável pelo CMS (campo hero_image)    */}
+      <section
+        style={{
+          position: 'relative',
+          minHeight: '65vh',
+          display: 'flex',
+          alignItems: 'center',
+          overflow: 'hidden',
+          marginTop: '56px', /* compensa a altura da navbar fixa */
+        }}
+      >
+        {/* Fundo gradiente com estrelas em CSS */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(26,74,138,0.55) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 80% 20%, rgba(36,96,181,0.3) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 20% 80%, rgba(10,20,60,0.6) 0%, transparent 60%)',
+            backgroundColor: '#08111f',
+          }}
+        >
+          {/* Estrelas decorativas em CSS puro */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: 'radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.55) 0%, transparent 100%), radial-gradient(1px 1px at 25% 60%, rgba(255,255,255,0.4) 0%, transparent 100%), radial-gradient(1.5px 1.5px at 40% 30%, rgba(255,255,255,0.5) 0%, transparent 100%), radial-gradient(1px 1px at 55% 75%, rgba(255,255,255,0.35) 0%, transparent 100%), radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.5) 0%, transparent 100%), radial-gradient(1.5px 1.5px at 82% 50%, rgba(255,255,255,0.45) 0%, transparent 100%), radial-gradient(1px 1px at 92% 80%, rgba(255,255,255,0.4) 0%, transparent 100%), radial-gradient(1px 1px at 15% 85%, rgba(255,255,255,0.3) 0%, transparent 100%), radial-gradient(1px 1px at 35% 45%, rgba(255,255,255,0.45) 0%, transparent 100%), radial-gradient(1.5px 1.5px at 60% 10%, rgba(255,255,255,0.5) 0%, transparent 100%)',
+          }} />
+        </div>
+
+        {/* Conteúdo do hero */}
+        <div
+          style={{
+            position: 'relative',
+            zIndex: 2,
+            width: '100%',
+            maxWidth: '1100px',
+            margin: '0 auto',
+            padding: '4rem 3rem',
+            display: 'grid',
+            gridTemplateColumns: '1fr 300px',
+            gap: '4rem',
+            alignItems: 'center',
+          }}
+        >
+          {/* Texto esquerdo */}
+          <div>
+            {/* Eyebrow — nome da instituição */}
+            <div style={{
+              fontSize: '0.78rem',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: 'rgba(255,255,255,0.5)',
+              marginBottom: '1.1rem',
+            }}>
+              {siteConfig.acronym} · {siteConfig.university}
+            </div>
+
+            {/* Título principal — vem do CMS ou usa o nome do grupo */}
+            <h1 style={{
+              fontFamily: 'var(--font-family-serif)',
+              fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)',
+              fontWeight: 400,
+              color: 'white',
+              lineHeight: 1.1,
+              marginBottom: '0.5rem',
+            }}>
+              {about.title ?? siteConfig.fullName}
             </h1>
-            <p className="text-lg text-body leading-relaxed mb-8">
-              O LEVI é um grupo de pesquisa do Departamento de Física da UFMA
-              dedicado ao avanço do conhecimento científico em suas linhas de pesquisa.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/research"
-                className="bg-primary text-on-primary text-sm font-medium px-5 py-3 rounded-md hover:bg-primary-active transition-colors"
-              >
-                Nossas pesquisas
+
+            {/* Subtítulo — vem do CMS */}
+            {about.subtitle && (
+              <p style={{
+                fontSize: '1rem',
+                fontWeight: 300,
+                color: 'rgba(255,255,255,0.6)',
+                marginBottom: '2rem',
+              }}>
+                {about.subtitle}
+              </p>
+            )}
+
+            {/* Botões de ação */}
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
+              <Link href="/research" style={{
+                display: 'inline-block',
+                padding: '0.6rem 1.6rem',
+                fontSize: '0.85rem',
+                textDecoration: 'none',
+                background: 'var(--color-blue-mid)',  /* botão primário azul */
+                border: '1.5px solid var(--color-blue-mid)',
+                color: 'white',
+                transition: 'all 0.2s',
+              }}>
+                Nossa pesquisa
               </Link>
-              <Link
-                href="/members"
-                className="bg-canvas text-ink text-sm font-medium px-5 py-3 rounded-md border border-hairline hover:bg-surface-soft transition-colors"
-              >
+              <Link href="/members" style={{
+                display: 'inline-block',
+                padding: '0.6rem 1.6rem',
+                fontSize: '0.85rem',
+                textDecoration: 'none',
+                background: 'transparent',
+                border: '1.5px solid rgba(255,255,255,0.55)',
+                color: 'rgba(255,255,255,0.85)',
+                transition: 'all 0.2s',
+              }}>
                 Conhecer o grupo
               </Link>
+            </div>
+          </div>
+
+          {/* Visual direito — imagem do CMS ou placeholder animado */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{
+              width: '260px',
+              height: '260px',
+              borderRadius: '50%',
+              overflow: 'hidden',
+              border: '1.5px solid rgba(255,255,255,0.1)',
+              boxShadow: '0 0 50px rgba(26,74,138,0.55), 0 0 100px rgba(26,74,138,0.2)',
+              flexShrink: 0,
+            }}>
+              {about.hero_image ? (
+                /* Imagem ou GIF enviado pelo CMS */
+                <img
+                  src={about.hero_image}
+                  alt={about.title ?? siteConfig.acronym}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+              ) : (
+                /* Placeholder animado em CSS — buraco negro */
+                <div style={{
+                  width: '100%',
+                  height: '100%',
+                  background: 'radial-gradient(circle at 38% 38%, #2a5aaa 0%, #102050 35%, #04080f 65%)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  position: 'relative',
+                }}>
+                  <div style={{
+                    width: '72px',
+                    height: '72px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle at 38% 35%, #1a3060, #02040a)',
+                    boxShadow: '0 0 30px rgba(10,20,60,0.9)',
+                    position: 'absolute',
+                  }} />
+                  <p style={{
+                    position: 'absolute',
+                    bottom: '18px',
+                    fontSize: '0.62rem',
+                    color: 'rgba(255,255,255,0.2)',
+                    fontFamily: 'var(--font-family-serif)',
+                    fontStyle: 'italic',
+                  }}>
+                    adicione uma imagem via CMS
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Linhas de pesquisa */}
-      <section className="bg-surface-soft section-padding">
-        <div className="container-site">
-          <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">
-            Linhas de pesquisa
-          </span>
-          <h2 className="font-serif text-4xl text-ink tracking-tight mb-12">
-            O que investigamos
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-surface-card rounded-lg p-8 min-h-48 min-h-48 min-h-48 min-h-48 min-h-48 min-h-48">
-                <div className="text-primary text-2xl mb-4">✦</div>
-                <h3 className="font-sans text-base font-medium text-ink mb-3">
-                  Linha de Pesquisa {i}
-                </h3>
-                <p className="text-sm text-body leading-relaxed">
-                  Descrição placeholder da linha de pesquisa {i}. Este texto será
-                  substituído pelo conteúdo real do grupo.
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* ── Seções do site — cards de navegação ──────────────────────────── */}
+      {/* Grid com cards que levam para as páginas internas                  */}
+      <main style={{ maxWidth: '860px', margin: '0 auto', padding: '0 2rem' }}>
 
-      {/* Membros destaque */}
-      <section className="bg-canvas section-padding">
-        <div className="container-site">
-          <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">
-            Equipe
-          </span>
-          <h2 className="font-serif text-4xl text-ink tracking-tight mb-12">
-            Quem somos
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {['Pesquisador Sênior', 'Doutorando', 'Mestrando', 'Iniciação Científica'].map((role) => (
-              <div key={role} className="text-center">
-                <div className="w-20 h-20 rounded-full bg-surface-card mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl text-muted">✦</span>
-                </div>
-                <p className="text-sm font-medium text-ink">Nome Placeholder</p>
-                <p className="text-xs text-muted mt-1">{role}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10">
-            <Link
-              href="/members"
-              className="text-sm font-medium text-primary hover:text-primary-active transition-colors"
-            >
-              Ver todos os membros →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Publicações recentes */}
-      <section className="bg-surface-dark section-padding">
-        <div className="container-site">
-          <span className="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">
-            Publicações
-          </span>
-          <h2 className="font-serif text-4xl text-on-dark tracking-tight mb-12">
-            Trabalhos recentes
-          </h2>
-          <div className="flex flex-col gap-6">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-surface-dark-elevated rounded-lg p-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                  <span className="text-xs font-medium uppercase tracking-widest text-primary mb-2 block">
-                    Artigo · 2024
-                  </span>
-                  <h3 className="text-base font-medium text-on-dark mb-1">
-                    Título da Publicação Placeholder {i}
-                  </h3>
-                  <p className="text-sm text-on-dark-soft">
-                    Autor A, Autor B, Autor C — Journal Placeholder
-                  </p>
-                </div>
-                <div className="shrink-0">
-                  <span className="text-xs font-medium text-muted-soft border border-surface-dark-elevated px-3 py-1 rounded-pill">
-                    DOI placeholder
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10">
-            <Link
-              href="/publications"
-              className="text-sm font-medium text-primary hover:text-primary-active transition-colors"
-            >
-              Ver todas as publicações →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA contato */}
-      <section className="bg-primary section-padding">
-        <div className="container-site text-center">
-          <h2 className="font-serif text-4xl text-on-primary tracking-tight mb-6">
-            Quer fazer parte do LEVI?
-          </h2>
-          <p className="text-base text-on-primary opacity-90 mb-8 max-w-xl mx-auto">
-            Estamos sempre abertos a colaborações, estudantes e pesquisadores
-            interessados em nossas linhas de pesquisa.
+        <section className="page-section">
+          <h2 className="section-title">Pesquisa</h2>
+          <p style={{ fontSize: '1rem', lineHeight: 1.8, color: 'var(--color-muted)', marginBottom: '2rem', fontWeight: 300, maxWidth: '720px' }}>
+            Investigamos problemas fundamentais em física teórica, com foco em gravitação, cosmologia e campos relacionados.
           </p>
-          <Link
-            href="/contact"
-            className="bg-canvas text-ink text-sm font-medium px-6 py-3 rounded-md hover:bg-surface-soft transition-colors inline-block"
-          >
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+            <PageCard
+              href="/research"
+              label="Linhas de pesquisa"
+              title="Áreas de investigação"
+              description="Temas e projetos ativos do grupo."
+              cta="Ver pesquisa →"
+            />
+            <PageCard
+              href="/publications"
+              label="Produção científica"
+              title="Publicações"
+              description="Artigos publicados em periódicos internacionais."
+              cta="Ver publicações →"
+            />
+            <PageCard
+              href="/members"
+              label="Equipe"
+              title="Membros"
+              description="Pesquisadores, pós-graduandos e estudantes."
+              cta="Ver membros →"
+            />
+            <PageCard
+              href="/news"
+              label="Novidades"
+              title="Notícias"
+              description="Conquistas, eventos e novidades do grupo."
+              cta="Ver notícias →"
+            />
+          </div>
+        </section>
+
+        {/* ── Contato rápido ── */}
+        <section className="page-section">
+          <h2 className="section-title">Contato</h2>
+          <p style={{ fontSize: '0.97rem', lineHeight: 1.85, color: 'var(--color-muted)', fontWeight: 300, marginBottom: '1rem' }}>
+            Interessado em ingressar no grupo como aluno de IC, mestrando ou doutorando?
+          </p>
+          <Link href="/contact" style={{
+            display: 'inline-block',
+            padding: '0.6rem 1.6rem',
+            fontSize: '0.85rem',
+            textDecoration: 'none',
+            background: 'var(--color-blue-mid)',
+            border: '1.5px solid var(--color-blue-mid)',
+            color: 'white',
+            transition: 'all 0.2s',
+          }}>
             Entre em contato
           </Link>
-        </div>
-      </section>
+        </section>
+
+      </main>
     </>
   );
 }
