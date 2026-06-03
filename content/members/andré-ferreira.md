@@ -1,9 +1,9 @@
 ---
-title: André Ferreira
-role: Iniciação Científica
-affiliation: UEMA
-bio: Aluno Excepcional
-email: andreferreira@gmail.com
-research_area: Sites e Memes
-year_start: "2020"
+title: Virna Paiva
+role: Doutorando
+affiliation: UFMA
+bio: Operadora do Impedancimetro
+email: virnapaiva@gmail.com
+research_area: Baterias
+year_start: ""
 ---
