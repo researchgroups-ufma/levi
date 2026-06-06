@@ -1,4 +1,4 @@
-﻿import { getCollection } from '@/lib/mdx';
+import { getCollection } from '@/lib/mdx';
 
 type Publication = {
   slug: string;

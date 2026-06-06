@@ -1,27 +1,28 @@
 export const siteConfig = {
   // ─── Identidade do grupo ───────────────────────────────────────────────────
   // Altere esses campos para cada novo grupo acadêmico
-  name: 'LEVI',
-  fullName: 'Laboratório de Estudos em [área]',
-  acronym: 'LEVI',
-  department: 'Departamento de Física',
-  unit: 'CCET',
-  university: 'Universidade Federal do Maranhão',
-  universityAcronym: 'UFMA',
-  city: 'São Luís',
-  state: 'MA',
-  country: 'Brasil',
+  name: 'LEVI',                                    // Nome curto — aparece no navbar e rodapé
+  fullName: 'Laboratório de Estudos em [área]',    // Nome completo — aparece na página Sobre e metadados
+  acronym: 'LEVI',                                 // Sigla — usada em títulos e breadcrumbs
+  department: 'Departamento de Física',            // Departamento — exibido no rodapé e página de contato
+  unit: 'CCET',                                    // Unidade acadêmica — exibida junto ao departamento
+  university: 'Universidade Federal do Maranhão',  // Nome completo da universidade
+  universityAcronym: 'UFMA',                       // Sigla da universidade — usada em textos curtos
+  city: 'São Luís',                                // Cidade — exibida no endereço de contato
+  state: 'MA',                                     // Estado (sigla) — exibido junto à cidade
+  country: 'Brasil',                               // País — usado em metadados de SEO
 
   // ─── Contato ───────────────────────────────────────────────────────────────
-  email: 'contato@levi.ufma.br',
-  location: 'Departamento de Física — CCET, UFMA, São Luís — MA',
+  email: 'contato@levi.ufma.br',                                       // E-mail principal — aparece na página de contato e rodapé
+  location: 'Departamento de Física — CCET, UFMA, São Luís — MA',     // Endereço textual completo — aparece na página de contato
 
   // ─── SEO e metadados ───────────────────────────────────────────────────────
-  siteTitle: 'LEVI — Laboratório de Estudos | UFMA',
-  siteDescription: 'Laboratório de estudos científicos do Departamento de Física da UFMA.',
+  siteTitle: 'LEVI — Laboratório de Estudos | UFMA',                           // <title> de todas as páginas — aparece na aba do navegador e no Google
+  siteDescription: 'Laboratório de estudos científicos do Departamento de Física da UFMA.',  // Meta description — indexada pelo Google, limite ~160 chars
 
   // ─── Navegação ─────────────────────────────────────────────────────────────
   // Adicione ou remova links conforme as seções ativas do site
+  // label: texto exibido no menu | href: rota Next.js correspondente
   navLinks: [
     { label: 'Apresentação', href: '/about' },
     { label: 'Pesquisa', href: '/research' },
@@ -32,16 +33,17 @@ export const siteConfig = {
   ],
 
   // ─── Afiliações ────────────────────────────────────────────────────────────
+  // Exibidas no rodapé como badges de parceiros/financiadores
   affiliations: ['UFMA', 'CCET', 'Departamento de Física', 'CNPq', 'FAPEMA'],
 
   // ─── Redes sociais ─────────────────────────────────────────────────────────
-  // Deixe vazio ('') para não exibir
+  // Deixe vazio ('') para não exibir o ícone correspondente no rodapé
   social: {
-    lattes: '',
-    orcid: '',
-    instagram: '',
-    twitter: '',
-    github: '',
+    lattes: '',    // URL do currículo Lattes do coordenador
+    orcid: '',     // URL do perfil ORCID do coordenador
+    instagram: '', // URL do perfil Instagram do grupo
+    twitter: '',   // URL do perfil X/Twitter do grupo
+    github: '',    // URL da organização GitHub do grupo
   },
 
   // ─── Tema visual ───────────────────────────────────────────────────────────

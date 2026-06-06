@@ -9,19 +9,21 @@
 /* ─── Tokens de design ───────────────────────────────────────────────────── */
 /* Para alterar a identidade visual, edite os valores em lib/config.ts       */
 /* O ThemeProvider injeta esses valores automaticamente via CSS variables    */
+/* Aqui ficam os fallbacks CSS — sincronize com lib/config.ts se alterar     */
 @theme {
-  --color-navy: #0c1a2e;
-  --color-blue: #1a4a8a;
-  --color-blue-mid: #2460b5;
-  --color-blue-link: #1a56cc;
-  --color-white: #ffffff;
-  --color-light: #f4f5f7;
-  --color-border: #d0d5de;
-  --color-text: #1a1a1a;
-  --color-muted: #555555;
+  --color-navy: #0c1a2e;     /* cor dominante: navbar, hero, footer, títulos de seção */
+  --color-blue: #1a4a8a;     /* azul institucional: bordas de destaque, section-title */
+  --color-blue-mid: #2460b5; /* azul médio: botão primário, hover de pills */
+  --color-blue-link: #1a56cc;/* azul link: links inline e pills no estado normal */
+  --color-white: #ffffff;    /* fundo padrão das páginas */
+  --color-light: #f4f5f7;    /* fundo de cards e seções alternadas */
+  --color-border: #d0d5de;   /* bordas de cards, divisores e separadores */
+  --color-text: #1a1a1a;     /* cor do texto principal — alto contraste */
+  --color-muted: #555555;    /* texto secundário: descrições, legendas, datas */
 
-  --font-family-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
-  --font-family-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Altere as famílias de fonte aqui e na linha @import url() no topo do arquivo */
+  --font-family-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;      /* usada em títulos h1/h2, nome do grupo */
+  --font-family-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif; /* usada em corpo de texto, labels, pills */
 }
 
 /* ─── Reset base ─────────────────────────────────────────────────────────── */
@@ -32,7 +34,7 @@
 }
 
 html {
-  font-size: 17px;
+  font-size: 17px; /* tamanho base — altere para escalar toda a tipografia proporcionalmente */
   scroll-behavior: smooth;
   font-family: var(--font-family-sans);
   background-color: #ffffff;
@@ -81,12 +83,12 @@ body {
 /* Padrão visual dos títulos h2 nas páginas internas                         */
 .section-title {
   font-family: var(--font-family-serif);
-  font-size: 2rem;
+  font-size: 2rem;           /* tamanho dos h2 de seção — altere para maior/menor hierarquia */
   font-weight: 400;
-  color: #0c1a2e;
+  color: #0c1a2e;            /* = --color-navy */
   margin-bottom: 1.8rem;
   padding-bottom: 0.75rem;
-  border-bottom: 2px solid #1a4a8a;
+  border-bottom: 2px solid #1a4a8a; /* sublinhado azul institucional = --color-blue */
   display: inline-block;
 }
 
@@ -95,18 +97,18 @@ body {
 .pill {
   font-size: 0.72rem;
   font-weight: 400;
-  color: #1a56cc;
+  color: #1a56cc;            /* = --color-blue-link */
   text-decoration: none;
   padding: 0.25rem 0.75rem;
-  border: 1px solid #b5cce8;
-  background: #eef4fc;
+  border: 1px solid #b5cce8; /* azul claro — borda do pill no estado normal */
+  background: #eef4fc;       /* azul muito claro — fundo do pill no estado normal */
   transition: all 0.15s;
   white-space: nowrap;
   display: inline-block;
 }
 
 .pill:hover {
-  background: #2460b5;
+  background: #2460b5;       /* = --color-blue-mid — fundo ao passar o mouse */
   color: white;
   border-color: #2460b5;
 }

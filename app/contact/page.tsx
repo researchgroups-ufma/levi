@@ -1,4 +1,4 @@
-﻿export default function ContactPage() {
+export default function ContactPage() {
   return (
     <>
       <section className="bg-canvas section-padding">
