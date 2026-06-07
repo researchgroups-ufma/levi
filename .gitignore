@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Tina CMS
+node_modules
+.env
+tina/__generated__
+.tina/__generated__
+
+# OpenNext / Wrangler (legado da tentativa com Keystatic)
+.open-next/
+.wrangler/
+.dev.vars
